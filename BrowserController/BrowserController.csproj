@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.props" Condition="Exists('..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.props')" />
+  <Import Project="..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.79.1.36\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.79.1.36\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.79.1.36\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.79.1.36\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BEAB7109-8B87-44E4-B087-AB46CBC7947E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BrowserController</RootNamespace>
+    <AssemblyName>BrowserController</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish2\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B692438F2F8F7269C6DB6EC3B4E0A45147810A8C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BrowserController_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.13.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.13.0\lib\net46\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Freezer, Version=1.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freezer.1.0.1.5\lib\net45\Freezer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tobii.Interaction.Model, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Tobii.Interaction.Net, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebsitesScreenshot, Version=1.8.0.0, Culture=neutral, PublicKeyToken=a86c4eea080940bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WebsitesScreenshot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\PageDto.cs" />
+    <Compile Include="DB\urlDto.cs" />
+    <Compile Include="model\Page.cs" />
+    <Compile Include="model\Site.cs" />
+    <Compile Include="DB\WebDB.cs" />
+    <Compile Include="model\FrameTraectoryes.cs" />
+    <Compile Include="model\Session.cs" />
+    <Compile Include="model\SessionFrame.cs" />
+    <Compile Include="model\Traectory.cs" />
+    <Compile Include="model\User.cs" />
+    <Compile Include="view\AllUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AllUsers.Designer.cs">
+      <DependentUpon>AllUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\CreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\HeatMapWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HeatMapWindow.Designer.cs">
+      <DependentUpon>HeatMapWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\painter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\painter.Designer.cs">
+      <DependentUpon>painter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\report.Designer.cs">
+      <DependentUpon>report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SessionForm.Designer.cs">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Sites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Sites.Designer.cs">
+      <DependentUpon>Sites.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\AllUsers.resx">
+      <DependentUpon>AllUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\HeatMapWindow.resx">
+      <DependentUpon>HeatMapWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\painter.resx">
+      <DependentUpon>painter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\report.resx">
+      <DependentUpon>report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SessionForm.resx">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Sites.resx">
+      <DependentUpon>Sites.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BrowserController_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\freezercapture\freezercapture.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets" Condition="Exists('..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.79.1.36\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.79.1.36\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.79.1.36\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.79.1.36\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.targets'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.79.1.360\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.targets" Condition="Exists('..\packages\CefSharp.Wpf.79.1.360\build\CefSharp.Wpf.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.79.1.360\build\CefSharp.WinForms.targets')" />
+</Project>
